@@ -1,0 +1,29 @@
+.users-table {
+    margin: 0 20px;
+}
+.users-table-header {
+    border: 2px solid black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.users-table-header div {
+    flex: 1;
+}
+.users-table-body {
+    display: flex;
+    flex-direction: column;
+}
+.each-row {
+    border: 1px solid rgb(58, 57, 57);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.each-row div {
+    flex: 1;
+}
+.each-row .actions {
+    display: flex;
+    flex-direction: column;
+}
