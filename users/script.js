@@ -1,29 +1,14 @@
 const usertableBodyEl = document.querySelector('.users-table-body');
 
-var users = [
-    {
-        username: "fj68",
-        firstName: "Farzad",
-        lastName: "Jamshidi",
-        nationalCode: "0001234567",
-        birthDate: "21/09/1989",
-        city: "Tehran",
-        mobile: "09123456789",
-        address: "Tehran Tehran",
-        role: "admin"
-    },
-    {
-        username: "hp23",
-        firstName: "Harry",
-        lastName: "Potter",
-        nationalCode: "0001234568",
-        birthDate: "01/01/1980",
-        city: "London",
-        mobile: "09000456789",
-        address: "London, Platform 9 3/4",
-        role: "admin"
-    }
-];
+var users = [];
+
+function load()
+{
+    users = userRepo.getUsers();
+}
+
+load();
+
 
 users.forEach(user =>
 {
