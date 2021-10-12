@@ -1,4 +1,5 @@
 const usertableBodyEl = document.querySelector('.users-table-body');
+const createUserFormLink = document.querySelector('#create-user-form-link');
 
 var users = [];
 
@@ -35,4 +36,9 @@ users.forEach(user =>
     `;
 
     usertableBodyEl.appendChild(eachRowNode);
+});
+
+createUserFormLink.addEventListener('click', function ()
+{
+        window.location.href = "/createUserForm";
 });
