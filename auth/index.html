@@ -3,16 +3,42 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Farzad Jamshidi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <title>Login | TemWork JS</title>
 </head>
 
 <body>
 
-  Username: <input type="text" id="username">
-  Password: <input type="password" id="password">
 
-  <input type="submit" value="Submit" id="submit">
+  <div class="container">
+    <div class="row justify-content-center p-3">
+      <div class="col-md-6 border border-secondary rounded p-3">
+        <h4 class="mb-5">Please enter your credential</h4>
+
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input class="form-control" type="text" id="username" placeholder="Please enter your Username">
+          </div>
+          
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input class="form-control" type="password" id="password" placeholder="Please enter your Password">
+          </div>
+
+          <input class="btn btn-block btn-outline-primary mt-5" type="submit" value="Submit" id="submit">
+
+
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Username: <input type="text" id="username"> -->
+  <!-- Password: <input type="password" id="password"> -->
+
+  <!-- <input type="submit" value="Submit" id="submit"> -->
   
 </body>
 
