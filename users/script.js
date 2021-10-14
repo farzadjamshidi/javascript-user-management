@@ -59,8 +59,10 @@ rowsElements.forEach((element) =>
             case 'edit-btn':
                 window.location.href = "/users/edit#" + userId;
                 break;
-            case 'change-password-btn':
 
+            case 'change-password-btn':
+                showChangePasswordModal();
+                afterShownChangePasswordModal(userId);
                 break;
 
             default:
@@ -69,3 +71,45 @@ rowsElements.forEach((element) =>
     });
 
 });
+
+function showChangePasswordModal()
+{
+    document.getElementsByClassName('change-password-modal')[0].classList.add('show');
+}
+
+function hideChangePasswordModal()
+{
+    document.getElementsByClassName('change-password-modal')[0].classList.remove('show');
+}
+
+function afterShownChangePasswordModal(userId)
+{
+    document.querySelector('#change-password-modal-cancel-btn').addEventListener('click', function ()
+    {
+        hideChangePasswordModal();
+    });
+    document.querySelector('#change-password-modal-confirm-btn').addEventListener('click', function ()
+    {
+
+        const changedPassword = document.querySelector('#change-password').value;
+        const repeatChangedPassword = document.querySelector('#repeat-change-password').value;
+
+        if (changedPassword === repeatChangedPassword)
+        {
+
+            const user = userRepo.getUserById(userId);
+            const editedUser = {
+                ...user,
+                ...{
+                    "password": changedPassword,
+                }
+            };
+
+            userRepo.updateUser(editedUser);
+            hideChangePasswordModal();
+        }
+        else
+        {
+        }
+    });
+}
