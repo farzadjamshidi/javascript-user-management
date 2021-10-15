@@ -5,6 +5,8 @@ var users = [];
 
 function load()
 {
+    usertableBodyEl.innerHTML = "";
+
     users = userRepo.getUsers();
 
     users.forEach(user =>
@@ -54,7 +56,8 @@ rowsElements.forEach((element) =>
         switch (event.target.id)
         {
             case 'delete-btn':
-
+                showDeleteUserModal();
+                afterShownDeleteUserModal(userId);
                 break;
             case 'edit-btn':
                 window.location.href = "/users/edit#" + userId;
@@ -71,6 +74,37 @@ rowsElements.forEach((element) =>
     });
 
 });
+
+function showDeleteUserModal()
+{
+    document.getElementsByClassName('delete-user-modal')[0].classList.add('show');
+}
+
+function hideDeleteUserModal()
+{
+    document.getElementsByClassName('delete-user-modal')[0].classList.remove('show');
+}
+
+function afterShownDeleteUserModal(userId)
+{
+    const user = userRepo.getUserById(userId);
+
+    document.querySelector('#delete-user-message').innerHTML = `Are you sure want to delete user "${ user.firstName } ${ user.lastName }" with id: ${ user.id }?`;
+
+    document.querySelector('#delete-user-modal-cancel-btn').addEventListener('click', function ()
+    {
+        hideDeleteUserModal();
+    });
+    document.querySelector('#delete-user-modal-confirm-btn').addEventListener('click', function ()
+    {
+        userRepo.deleteUser(userId);
+        hideDeleteUserModal();
+        setTimeout(() =>
+        {
+            load();
+        }, 50);
+    });
+}
 
 function showChangePasswordModal()
 {
