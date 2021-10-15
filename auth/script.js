@@ -2,10 +2,22 @@ const usernameInput = document.querySelector("#username");
 const passwordInput = document.querySelector("#password");
 const submitButton = document.querySelector("#submit");
 
-submitButton.addEventListener("click", function () {
-  if (usernameInput.value === "admin" && passwordInput.value === "admin") {
+var users = [];
+
+function load()
+{
+  users = userRepo.getUsers();
+}
+
+load();
+
+submitButton.addEventListener("click", function ()
+{
+  if (isUserAuthorize(usernameInput.value, passwordInput.value))
+  {
     window.location.href = "/users";
-  } else {
+  } else
+  {
     let message = "نام کاربری یا رمز عبور اشتباه است، لطفا مجددا تلاش کنید.";
     let footer = "با احترام، تیم پنج فرانت اند";
 
@@ -18,3 +30,17 @@ submitButton.addEventListener("click", function () {
     });
   }
 });
+
+function isUserAuthorize(username, password)
+{
+  for (const user of users)
+  {
+    if (user.username === username && user.password === password)
+      return true;
+  }
+
+  if (username === 'admin' && password === 'admin')
+    return true;
+
+  return false;
+}
