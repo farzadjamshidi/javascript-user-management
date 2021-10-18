@@ -17,11 +17,18 @@ createUserForm.addEventListener('submit', function (event) {
         "id": Date.now().toString(),
     };
 
-    userRepo.createUser(userData);
 
-    window.location.href = "/users";
+    const changedPassword = document.querySelector('#change-password').value;
+    const repeatChangedPassword = document.querySelector('#repeat-change-password').value;
+
+    if (changedPassword === repeatChangedPassword) {
+        userRepo.createUser(userData);
+        window.location.href = "/users";
+    }
+    else {
+        document.querySelector('#password-error').innerHTML = "not equal"
+    }
 });
-cancelButton.addEventListener('click', function ()
-{
+cancelButton.addEventListener('click', function () {
     window.location.href = "/users";
 });
