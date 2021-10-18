@@ -144,6 +144,7 @@ function afterShownChangePasswordModal(userId)
         }
         else
         {
+            document.querySelector('#password-error').innerHTML= "not equal"
         }
     });
 }
