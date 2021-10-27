@@ -36,6 +36,36 @@ function load()
 
         usertableBodyEl.appendChild(eachRowNode);
     });
+
+    const rowsElements = document.querySelectorAll('.each-row');
+
+    rowsElements.forEach((element) =>
+    {
+        const userId = element.dataset.id;
+
+        element.addEventListener('click', function (event)
+        {
+            switch (event.target.id)
+            {
+                case 'delete-btn':
+                    showDeleteUserModal();
+                    afterShownDeleteUserModal(userId);
+                    break;
+                case 'edit-btn':
+                    window.location.href = "/users/edit#" + userId;
+                    break;
+
+                case 'change-password-btn':
+                    showChangePasswordModal();
+                    afterShownChangePasswordModal(userId);
+                    break;
+
+                default:
+                    break;
+            }
+        });
+
+    });
 }
 
 load();
@@ -43,36 +73,6 @@ load();
 createUserFormLink.addEventListener('click', function ()
 {
     window.location.href = "/createUserForm";
-});
-
-const rowsElements = document.querySelectorAll('.each-row');
-
-rowsElements.forEach((element) =>
-{
-    const userId = element.dataset.id;
-
-    element.addEventListener('click', function (event)
-    {
-        switch (event.target.id)
-        {
-            case 'delete-btn':
-                showDeleteUserModal();
-                afterShownDeleteUserModal(userId);
-                break;
-            case 'edit-btn':
-                window.location.href = "/users/edit#" + userId;
-                break;
-
-            case 'change-password-btn':
-                showChangePasswordModal();
-                afterShownChangePasswordModal(userId);
-                break;
-
-            default:
-                break;
-        }
-    });
-
 });
 
 function showDeleteUserModal()
@@ -144,7 +144,7 @@ function afterShownChangePasswordModal(userId)
         }
         else
         {
-            document.querySelector('#password-error').innerHTML= "not equal"
+            document.querySelector('#password-error').innerHTML = "not equal";
         }
     });
 }
