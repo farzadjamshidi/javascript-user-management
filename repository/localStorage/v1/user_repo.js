@@ -8,6 +8,7 @@ function _setUsers(users = [])
 function getModel()
 {
     return {
+        id: "1",
         username: "fj68",
         firstName: "Farzad",
         lastName: "Jamshidi",
