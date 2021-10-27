@@ -1,0 +1,59 @@
+.roles-table {
+    margin: 0 20px;
+}
+.roles-table-header {
+    border: 2px solid black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.roles-table-header div {
+    flex: 1;
+}
+.roles-table-body {
+    display: flex;
+    flex-direction: column;
+}
+.each-row {
+    border: 1px solid rgb(58, 57, 57);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.each-row div {
+    flex: 1;
+}
+.each-row .actions {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+.modal.show {
+    display: block;
+}
+.modal .backdrop {
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.modal .modal-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}

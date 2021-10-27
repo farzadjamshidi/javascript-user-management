@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Roles</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/layout/layout.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  
+</head>
+
+<div class="new-role-modal modal">
+  <div class="backdrop">
+
+  </div>
+  <div class="modal-container">
+    Create New Role:
+    
+    <label for="role-name">Role Name</label>
+    <input type="text" id="role-name">
+
+    <div>
+      <button id='new-role-modal-cancel-btn'>cancel</button>
+      <button id='new-role-modal-confirm-btn'>confirm</button>
+    </div>
+  </div>
+
+</div>
+
+<div class="users-list-modal modal">
+  <div class="backdrop">
+
+  </div>
+  <div class="modal-container">
+    Users List:
+
+    <div>
+      <button id='users-list-modal-close-btn'>close</button>
+    </div>
+  </div>
+
+</div>
+
+<div class="delete-role-modal modal">
+  <div class="backdrop">
+
+  </div>
+  <div class="modal-container">
+    Delete Role:
+    
+    <p id="delete-role-message"></p>
+
+    <div>
+      <button id='delete-role-modal-cancel-btn'>cancel</button>
+      <button id='delete-role-modal-confirm-btn'>confirm</button>
+    </div>
+  </div>
+
+</div>
+
+<body>
+  <navbar></navbar>
+  <sidebar></sidebar>
+
+  <div class="main-content">
+    <div>
+      <span>Roles List</span>
+        <button id='create-role-form-link'>create new role</button>
+    </div>
+  
+    <div class="roles-table">
+      <div class="roles-table-header">
+          <div>No.</div>
+          <div>Role</div>
+          <div>Actions</div>
+      </div>
+      <div class="roles-table-body">
+      </div>
+    </div>
+  </div>
+  
+</body>
+
+<script src="../repository/localStorage/v1/role_repo.js"></script>
+<script src="./script.js"></script>
+<script src="./../layout/load-layout.js"></script>
+
+</html>
