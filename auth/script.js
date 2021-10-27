@@ -7,6 +7,11 @@ var users = [];
 function load()
 {
   users = userRepo.getUsers();
+  users.push({
+    username: 'admin',
+    password: 'admin',
+    role: 'admin'
+  });
 }
 
 load();
@@ -15,6 +20,8 @@ submitButton.addEventListener("click", function ()
 {
   if (isUserAuthorize(usernameInput.value, passwordInput.value))
   {
+    const loggedInUser = users.find(user => user.username === usernameInput.value);
+    authService.setLoggedInUser(loggedInUser);
     window.location.href = "/users";
   } else
   {
@@ -38,9 +45,6 @@ function isUserAuthorize(username, password)
     if (user.username === username && user.password === password)
       return true;
   }
-
-  if (username === 'admin' && password === 'admin')
-    return true;
 
   return false;
 }
