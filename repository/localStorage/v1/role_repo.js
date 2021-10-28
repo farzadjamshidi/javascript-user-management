@@ -26,8 +26,11 @@ function deleteRole(roleId)
 {
     var roles = getRoles();
     var deletedRoleIndex = getRoles().findIndex(role => role.id === roleId);
-    roles.splice(deletedRoleIndex, 1);
-    _setRoles(roles);
+    if (deletedRoleIndex > -1)
+    {
+        roles.splice(deletedRoleIndex, 1);
+        _setRoles(roles);
+    }
 }
 
 function createRole(newRole)

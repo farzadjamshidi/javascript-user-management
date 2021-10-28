@@ -40,7 +40,7 @@ function load()
             switch (event.target.id)
             {
                 case 'delete-btn':
-                    showDeleteRoleModal();
+                    showDeleteRoleModal(roleId);
                     afterShownDeleteRoleModal(roleId);
                     break;
 
@@ -79,6 +79,7 @@ function afterShownNewRoleModal()
 {
     document.querySelector('#new-role-modal-cancel-btn').addEventListener('click', function ()
     {
+        document.querySelector('#new-role-modal-confirm-btn').removeEventListener('click');
         hideNewRoleModal();
     });
 
@@ -95,8 +96,19 @@ function afterShownNewRoleModal()
     });
 }
 
-function showDeleteRoleModal()
+function showDeleteRoleModal(roleId)
 {
+    const role = roleRepo.getRoleById(roleId);
+
+    const users = userRepo.getUsersByRoleName(role.name);
+
+    if (users && users.length > 0)
+    {
+
+        alert("This Role can not be deleted. Some users have this role.");
+        return;
+    }
+
     document.getElementsByClassName('delete-role-modal')[0].classList.add('show');
 }
 
@@ -113,6 +125,7 @@ function afterShownDeleteRoleModal(roleId)
 
     document.querySelector('#delete-role-modal-cancel-btn').addEventListener('click', function ()
     {
+        document.querySelector('#delete-role-modal-confirm-btn').removeEventListener('click');
         hideDeleteRoleModal();
     });
     document.querySelector('#delete-role-modal-confirm-btn').addEventListener('click', function ()

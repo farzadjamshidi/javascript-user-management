@@ -40,8 +40,11 @@ function deleteUser(userId)
 {
     var users = getUsers();
     var deletedUserIndex = getUsers().findIndex(user => user.id === userId);
-    users.splice(deletedUserIndex, 1);
-    _setUsers(users);
+    if (deletedUserIndex > -1)
+    {
+        users.splice(deletedUserIndex, 1);
+        _setUsers(users);
+    }
 }
 
 function createUser(newUser)
