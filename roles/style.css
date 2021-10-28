@@ -1,7 +1,9 @@
-.roles-table {
+.roles-table,
+.users-table {
     margin: 0 20px;
 }
-.roles-table-header {
+.roles-table-header,
+.users-table-header {
     border: 2px solid black;
     display: flex;
     flex-direction: row;
@@ -10,7 +12,11 @@
 .roles-table-header div {
     flex: 1;
 }
-.roles-table-body {
+.users-table-header div {
+    flex: 1;
+}
+.roles-table-body,
+.users-table-body {
     display: flex;
     flex-direction: column;
 }
@@ -56,4 +62,10 @@
     padding: 10px;
     display: flex;
     flex-direction: column;
+}
+
+.users-list-modal .modal-container {
+    width: 600px;
+    height: 400px;
+    overflow-y: auto;
 }

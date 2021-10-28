@@ -142,4 +142,28 @@ function afterShownUsersListModal(roleId)
     {
         hideUsersListModal();
     });
+
+    const role = roleRepo.getRoleById(roleId);
+
+    const users = userRepo.getUsersByRoleName(role.name);
+
+    const usertableBodyEl = document.querySelector('.users-table-body');
+
+    usertableBodyEl.innerHTML = "";
+
+    users.forEach((user, index) =>
+    {
+        var eachRowNode = document.createElement("Div");
+        eachRowNode.classList.add('each-row');
+
+        eachRowNode.innerHTML = `
+        <div>${ user.username }</div>
+        <div>${ user.firstName }</div>
+        <div>${ user.lastName }</div>
+        <div>${ user.nationalCode }</div>
+    `;
+
+        usertableBodyEl.appendChild(eachRowNode);
+    });
+
 }

@@ -1,8 +1,8 @@
-var localStorageKey = 'roles';
+var roleLocalStorageKey = 'roles';
 
 function _setRoles(roles = [])
 {
-    localStorage.setItem(localStorageKey, JSON.stringify(roles));
+    localStorage.setItem(roleLocalStorageKey, JSON.stringify(roles));
 }
 
 function getModel()
@@ -14,7 +14,7 @@ function getModel()
 }
 function getRoles()
 {
-    return JSON.parse(localStorage.getItem(localStorageKey) || '[]');
+    return JSON.parse(localStorage.getItem(roleLocalStorageKey) || '[]');
 }
 
 function getRoleById(roleId)
