@@ -31,6 +31,11 @@ function getUserById(userId)
     return getUsers().find(user => user.id === userId);
 }
 
+function getUsersByRoleName(roleName)
+{
+    return getUsers().filter(user => user.role === roleName);
+}
+
 function deleteUser(userId)
 {
     var users = getUsers();
@@ -57,6 +62,7 @@ function updateUser(updatedUser)
 var userRepo = {
     getModel: getModel,
     getUsers: getUsers,
+    getUsersByRoleName: getUsersByRoleName,
     getUserById: getUserById,
     deleteUser: deleteUser,
     createUser: createUser,
