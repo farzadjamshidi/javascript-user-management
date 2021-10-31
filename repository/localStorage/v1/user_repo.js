@@ -18,6 +18,12 @@ function getModel()
         mobile: "09123456789",
         address: "Tehran Tehran",
         role: "admin",
+        images: {
+            file1: null,
+            file2: null,
+            file3: null,
+            file4: null
+        },
         password: 'admin'
     };
 }
