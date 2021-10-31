@@ -27,10 +27,19 @@ function load()
         <div>${ user.role }</div>
         <div class="actions">
             <div>
-                <input type="button" id="delete-btn" value="Delete">
-                <input type="button" id="edit-btn" value="Edit">
+                <span style="color: red;">
+                    <i id="delete-btn" class="fas fa-trash-alt"></i>
+                </span>
+                <span style="color: blue;">
+                    <i id="edit-btn" class="fas fa-edit"></i>
+                </span>
+                <span style="color: orang;">
+                    <i id="change-password-btn" class="fas fa-key"></i>
+                </span>
+                <span style="color: green;">
+                    <i id="documents-btn" class="fas fa-camera"></i>
+                </span>
             </div>
-            <input type="button" id="change-password-btn" value="Change Password">
         </div>
     `;
 
@@ -58,6 +67,10 @@ function load()
                 case 'change-password-btn':
                     showChangePasswordModal();
                     afterShownChangePasswordModal(userId);
+                    break;
+
+                case 'documents-btn':
+                    window.location.href = "/documents#" + userId;
                     break;
 
                 default:
