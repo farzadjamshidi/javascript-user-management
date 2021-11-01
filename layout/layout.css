@@ -100,3 +100,8 @@ main {
     right: 0;
     width: calc(100vw - 200px);
 }
+
+.navbar .navbar-nav .dropdown-menu {
+    right: 0;
+    left: unset;
+}
