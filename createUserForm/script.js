@@ -2,6 +2,15 @@ const createUserForm = document.querySelector('#create-user');
 const submitButton = document.querySelector('#submit');
 const cancelButton = document.querySelector('#cancel-btn');
 
+const roles = roleRepo.getRoles();
+
+const options = roles.reduce(function (acc, role)
+{
+    return acc + `<option value="${ role.name }">${ role.name }</option>`;
+}, '');
+
+document.querySelector('#role').innerHTML = options;
+
 createUserForm.addEventListener('submit', function (event)
 {
     event.preventDefault();
