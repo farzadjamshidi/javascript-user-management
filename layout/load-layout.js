@@ -24,8 +24,8 @@
 
             document.querySelector('#user-drop-down-change-password').addEventListener('click', function ()
             {
-                authService.removeLoggedInUser();
-                window.location.href = "/";
+                showChangePasswordModal();
+                afterShownChangePasswordModal(loggedInUser.id);
             });
 
             const loggedInUser = authService.getLoggedInUser();
@@ -110,6 +110,50 @@
         `;
 
 
+    }
+
+    function showChangePasswordModal()
+    {
+        document.getElementsByClassName('user-drop-change-password-modal')[0].classList.add('show');
+    }
+
+    function hideChangePasswordModal()
+    {
+        document.getElementsByClassName('user-drop-change-password-modal')[0].classList.remove('show');
+    }
+
+    function afterShownChangePasswordModal(userId)
+    {
+        document.querySelector('#user-drop-change-password-modal-cancel-btn').addEventListener('click', function ()
+        {
+            hideChangePasswordModal();
+        });
+        document.querySelector('#user-drop-change-password-modal-confirm-btn').addEventListener('click', function ()
+        {
+
+            const changedPassword = document.querySelector('#user-drop-down-change-password-input').value;
+            const repeatChangedPassword = document.querySelector('#user-drop-down-repeat-change-password').value;
+
+            if (changedPassword === repeatChangedPassword)
+            {
+
+                const user = userRepo.getUserById(userId);
+                const editedUser = {
+                    ...user,
+                    ...{
+                        "password": changedPassword,
+                    }
+                };
+
+                userRepo.updateUser(editedUser);
+                hideChangePasswordModal();
+                window.location.href = "/";
+            }
+            else
+            {
+                document.querySelector('#user-drop-down-password-error').innerHTML = "not equal";
+            }
+        });
     }
 
 })()
