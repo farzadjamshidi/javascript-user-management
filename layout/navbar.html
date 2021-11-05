@@ -17,8 +17,8 @@
                     <span id="logged-in-user-full-name"></span>
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><span class="dropdown-item">Profile</span></li>
-                    <li><span class="dropdown-item">Change Password</span></li>
+                    <li><span class="dropdown-item" id="user-drop-down-profile">Profile</span></li>
+                    <li><span class="dropdown-item" id="user-drop-down-change-password">Change Password</span></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><span class="dropdown-item" id="user-drop-down-log-out">Log out</span></li>
                 </ul>
@@ -28,3 +28,19 @@
         </div>
     </div>
 </nav>
+
+<div class="profile-modal modal">
+  <div class="backdrop">
+
+  </div>
+  <div class="modal-container">
+    User Profile:
+    
+    <div class="profile-modal-container"></div>
+
+    <div>
+      <button id='profile-modal-close-btn'>Close</button>
+    </div>
+  </div>
+
+</div>

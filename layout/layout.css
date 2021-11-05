@@ -105,3 +105,16 @@ main {
     right: 0;
     left: unset;
 }
+
+.profile-modal .modal-container {
+    width: 500px;
+    height: 250px;
+}
+
+.profile-modal .modal-container .profile-modal-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.profile-modal .modal-container .profile-modal-container .address {
+    grid-column: 1/3;
+}
