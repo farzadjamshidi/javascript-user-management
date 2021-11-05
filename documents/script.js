@@ -43,10 +43,13 @@ function load()
             eachEmptyImageNode.classList.add('each-image');
             eachEmptyImageNode.dataset.key = key;
             eachEmptyImageNode.innerHTML = `
-                <span style="font-size: 24px; color: gray;">
-                    <i class="fas fa-upload"></i>
-                </span>
-                <input type="file" accept="image/png, image/jpeg">
+                
+                <label for="file-upload-${ key }">
+                    <span style="font-size: 24px; color: gray;">
+                        <i class="fas fa-upload"></i>
+                    </span>
+                </label>
+                <input type="file" id="file-upload-${ key }" accept="image/png, image/jpeg">
             `;
 
             const inputForUpload = eachEmptyImageNode.querySelector('input');

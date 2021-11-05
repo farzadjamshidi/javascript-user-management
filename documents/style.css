@@ -7,9 +7,19 @@
 
 .image-container .each-image {
     position: relative;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border: 1px solid rgb(171, 194, 134);
     border-radius: 3px;
     width: 200px;
     height: 200px;
+}
+
+.image-container .each-image input {
+    display: none;
+}
+
+.image-container .each-image label {
+    cursor: pointer;
 }
